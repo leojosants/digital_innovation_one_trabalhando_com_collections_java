@@ -1,4 +1,4 @@
-package br.com.dio.collection.list;
+package br.com.dio.collection.list.exemplos;
 
 import java.util.*;
 
@@ -138,13 +138,6 @@ public class ExemploList {
         System.out.println(notas2.get(0));
         notas2.remove(0);
         System.out.println(notas2);
-
-//        System.out.println("\n");
-//        System.out.println("\n");
-//        System.out.println("\n");
-//        System.out.println("\n");
-//        System.out.println("\n");
-
 
     }
 }
