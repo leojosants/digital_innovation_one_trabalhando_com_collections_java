@@ -119,6 +119,7 @@ public class ExemploList {
         // Resolva esses exercícios utilizando os métodos da implementação LinkedList:
         System.out.println("\nCrie uma lista chamada notas2 e coloque todos os elementos da List ArrayList nessa nova lista.");
         List<Double> notas2 = new LinkedList<Double>(); // Generics(jdk 5)
+
         System.out.println(notas2.size());
         notas2.add(7.0);
         notas2.add(8.5);
