@@ -97,6 +97,7 @@ class Gato implements Comparable<Gato> {
 
     @Override
     public int compareTo(Gato gato) {
+
         return this.getNome().compareToIgnoreCase(gato.getNome());
     }
 }
