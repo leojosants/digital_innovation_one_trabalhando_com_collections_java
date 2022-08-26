@@ -8,11 +8,11 @@ import java.util.List;
 public class ExemploOrdenacaoList {
     public static void main(String[] args) {
 
-    // Dadas as seguintes informações sobre meus gatos, crie uma lista e ordene esta lista exibindo: (nome - idade - cor)
+        // Dadas as seguintes informações sobre meus gatos, crie uma lista e ordene esta lista exibindo: (nome - idade - cor)
 
-    // Gato 1 = nome: Jon, idade: 18m, cor: Preto
-    // Gato 1 = nome: Simba, idade: 6m, cor: Tigrado
-    // Gato 1 = nome: Jon, idade: 12m, cor: Amarelo
+        // Gato 1 = nome: Jon, idade: 18m, cor: Preto
+        // Gato 1 = nome: Simba, idade: 6m, cor: Tigrado
+        // Gato 1 = nome: Jon, idade: 12m, cor: Amarelo
 
         List<Gato> meusGatos = new ArrayList<>(){{
             add(new Gato("Jon", 18, "Preto"));
