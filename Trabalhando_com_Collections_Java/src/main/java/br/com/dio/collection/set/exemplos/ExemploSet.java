@@ -90,7 +90,7 @@ public class ExemploSet {
         notas.clear();
         System.out.println(notas);
 
-        System.out.println("\nCinfira se o conjunto está fazio");
+        System.out.println("\nConfira se o conjunto está fazio");
         System.out.println(notas);
         System.out.println(notas.isEmpty());
 
