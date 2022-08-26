@@ -43,21 +43,34 @@ public class Exercicio2 {
 
         // b - Ordem Natual (nome).
         System.out.println("\nOrdem Natual (nome): ");
-        Set<LinguagemFavorita> linguagemFavoritasONN = new TreeSet<>(linguagemFavoritaOI);
-        for (LinguagemFavorita linguagemON: linguagemFavoritasONN) {
-            System.out.printf("%s - %d - %s%n", linguagemON.getNome(), linguagemON.getAnoDeCriacao(), linguagemON.getIde());
+        Set<LinguagemFavorita> linguagemFavoritasONN = new TreeSet<>(minhasLinguagens);
+        for (LinguagemFavorita linguagem: linguagemFavoritasONN) {
+            System.out.println(linguagem);
         }
 
         // c - IDE
-        System.out.println("\nOrdem Natual (ide): ");
-        Set<LinguagemFavorita> linguagemFavoritasONI = new TreeSet<>(linguagemFavoritaOI);
-        for (LinguagemFavorita linguagemONI: linguagemFavoritasONI) {
-            System.out.printf("%s - %d - %s%n", linguagemONI.getNome(), linguagemONI.getAnoDeCriacao(), linguagemONI.getIde());
+        System.out.println("\nOrdem (ide): ");
+        Set<LinguagemFavorita> linguagemFavoritasOIde = new TreeSet<LinguagemFavorita>(new LinguagemFavorita.ComparatorIde());
+        linguagemFavoritasOIde.addAll(minhasLinguagens);
+        for (LinguagemFavorita linguagem: linguagemFavoritasOIde) {
+            System.out.println(linguagem);
         }
 
-
         // d - Ano de criação e nome.
+        System.out.println("\nOrdem Ano de criação e nome:");
+        Set<LinguagemFavorita> linguagemFavoritasOAN = new TreeSet<LinguagemFavorita>(new LinguagemFavorita.ComparatorAnoDeCriacaoEnome());
+        linguagemFavoritasOAN.addAll(minhasLinguagens);
+        for (LinguagemFavorita linguagem : linguagemFavoritasOAN) {
+            System.out.println(linguagem);
+        }
+
         // e - Nome, ano de criação e IDE.
+        System.out.println("\nOrdem Nome, ano de criação e IDE: ");
+        Set<LinguagemFavorita> linguagemFavoritasONAI = new TreeSet<LinguagemFavorita>(new LinguagemFavorita.ComparatorNomeAnoCriacaoIde());
+        linguagemFavoritasONAI.addAll(linguagemFavoritasOIde);
+        for (LinguagemFavorita linguagem : linguagemFavoritasONAI) {
+            System.out.println(linguagem);
+        }
 
 //      // Ao final exiba as linguagens no console uma abaixo da outra.
 //
@@ -127,21 +140,38 @@ class LinguagemFavorita implements Comparable<LinguagemFavorita> {
 
     @Override
     public int compareTo(LinguagemFavorita lf) {
-        return this.getNome().compareToIgnoreCase(lf.getNome());
+        return this.nome.compareTo(lf.nome);
     }
 
-
-    class ComparatorNomeAnoCriacaoIde implements Comparator<LinguagemFavorita> {
+    static class ComparatorIde implements Comparator<LinguagemFavorita> {
 
         @Override
         public int compare(LinguagemFavorita lf1, LinguagemFavorita lf2) {
-            int nome = lf1.getNome().compareTo(lf2.getNome());
+            return lf1.ide.compareToIgnoreCase(lf2.ide);
+        }
+    }
+
+    static class ComparatorAnoDeCriacaoEnome implements Comparator<LinguagemFavorita> {
+
+        @Override
+        public int compare(LinguagemFavorita lf1, LinguagemFavorita lf2) {
+            int anoDeCriacao = Integer.compare(lf1.anoDeCriacao, lf2.anoDeCriacao);
+            if (anoDeCriacao != 0) { return anoDeCriacao; }
+            return lf1.nome.compareToIgnoreCase(lf2.nome);
+        }
+    }
+
+    static class ComparatorNomeAnoCriacaoIde implements Comparator<LinguagemFavorita> {
+
+        @Override
+        public int compare(LinguagemFavorita lf1, LinguagemFavorita lf2) {
+            int nome = lf1.nome.compareToIgnoreCase(lf2.nome);
+            int anoDeCriacao = Integer.compare(lf1.anoDeCriacao, lf2.anoDeCriacao);
+
             if (nome != 0) { return nome; }
+            if (anoDeCriacao != 0) { return anoDeCriacao; }
 
-            int ide = lf1.getIde().compareTo(lf2.getIde());
-            if (ide != 0) { return ide; }
-
-            return Integer.compare(lf1.getAnoDeCriacao(), lf2.getAnoDeCriacao());
+            return lf1.ide.compareToIgnoreCase(lf2.ide);
         }
 
     }
