@@ -1,4 +1,4 @@
-package br.com.dio.collection.set.exerciciosPropostos;
+package br.com.dio.collection.set.exerciciospropostos;
 
 /*
     Crie uma classe LinguagemFavorita que possua os atributos nome, anoDeCriação, e ide.

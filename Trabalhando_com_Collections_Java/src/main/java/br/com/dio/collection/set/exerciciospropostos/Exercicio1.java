@@ -1,4 +1,4 @@
-package br.com.dio.collection.set.exerciciosPropostos;
+package br.com.dio.collection.set.exerciciospropostos;
 
 /*
     Crie um conjunto contendo as cores do arco-íris e:
