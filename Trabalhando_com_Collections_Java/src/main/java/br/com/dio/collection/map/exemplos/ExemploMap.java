@@ -61,11 +61,63 @@ public class ExemploMap {
         for (Map.Entry<String, Double> entry : entries) {
             if (entry.getValue().equals(consumoMaisMaisEficiente)) {
                 modeloMaisEficiente = entry.getKey();
-                System.out.println(modeloMaisEficiente + " - " + consumoMaisMaisEficiente);
+                System.out.print(modeloMaisEficiente + " - " + consumoMaisMaisEficiente + " km/l");
             }
         }
 
-        
+        System.out.println("\n\nExiba o modelo menos econômico e seu consumo: ");
+        Double consumoMenosEficiente = Collections.min(carrosPopulares.values());
+        String modeloMenosEficiente = "";
+        for (Map.Entry<String, Double> entry : carrosPopulares.entrySet()) {
+            if (entry.getValue().equals(consumoMenosEficiente)) {
+                modeloMenosEficiente = entry.getKey();
+                System.out.println(modeloMenosEficiente + " - " + consumoMenosEficiente + " km/l");
+            }
+        }
+
+        System.out.println("\nExiba a soma dos consumos: ");
+        Iterator<Double> iterator = carrosPopulares.values().iterator();
+        Double soma = 0.0;
+        while (iterator.hasNext()) {
+            Double next = iterator.next();
+            soma += next;
+        }
+        System.out.println(soma);
+
+        System.out.println("\nExiba a média dos consumos deste dicionário de carros: ");;
+        Double media = soma / carrosPopulares.size();
+        System.out.println(media);
+
+        System.out.println("\nRemova os modelos igual a 15.6 km/l: ");
+        System.out.println(carrosPopulares);
+        Iterator<Double> iterator1 = carrosPopulares.values().iterator();
+        while (iterator1.hasNext()) {
+            if (iterator1.next().equals(15.6)) {
+                iterator1.remove();
+            }
+        }
+        System.out.println(carrosPopulares);
+
+        System.out.println("\nInforme todos os carros na ordem em que foram informados: ");
+        Map<String, Double> carrosPopularesOI = new LinkedHashMap<>() {{
+            put("gol", 14.4);
+            put("uno", 15.6);
+            put("mobi", 16.1);
+            put("hb20", 14.5);
+            put("kwid", 15.6);
+        }};
+        System.out.println(carrosPopularesOI);
+
+        System.out.println("\nExiba o dicionário ordenado pelo modelo: ");
+        Map<String, Double> carrosPopularesOM = new TreeMap<>(carrosPopularesOI);
+        System.out.println(carrosPopularesOM);
+
+        System.out.println("\nApague o dicionario de carros: ");
+        carrosPopularesOI.clear();
+        System.out.println(carrosPopularesOI);
+
+        System.out.println("\nConfira se o dicionário está vazio");
+        System.out.println(carrosPopularesOI.isEmpty());
 
     }
 }
