@@ -1,9 +1,6 @@
 package br.com.dio.collection.stream.exemplos;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.*;
 import java.util.stream.Collectors;
 
@@ -83,5 +80,9 @@ public class ExerciciosStremAPI {
                 .collect(Collectors.groupingBy(i -> (i % 3 == 0 || i % 5 == 0)));
         System.out.println(collectNumerosMultiplosDe3E5);
 
+        List<Character> consoantesMeuNome = Arrays.asList('c', 'm', 'l', 'c', 'v', 'l', 'c', 'n', 't');
+        System.out.println(consoantesMeuNome);
+        Set<String> coresDaBandeiraDoBrasil = new TreeSet<>(Arrays.asList("verde", "amarelo", "azul", "branco"));
+        System.out.println(coresDaBandeiraDoBrasil);
     }
 }// Fim ExerciciosStremAPI
